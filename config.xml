@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/priyanka-smitha/Hello</url>
+        <credentialsId>ef8cc6a1-7b63-46f1-b4cc-667bbafd1ed6</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers>
+    <jenkins.plugins.publish__over__ssh.BapSshPreBuildWrapper plugin="publish-over-ssh@1.12">
+      <preBuild>
+        <consolePrefix>SSH: </consolePrefix>
+        <delegate>
+          <publishers>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+              <configName>ec2-52-5-190-167.compute-1.amazonaws.com</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory></remoteDirectory>
+                  <sourceFiles></sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>sudo yum -y install nodejs npm --enablerepo=epel</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>true</usePty>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+              <configName>ec2-52-5-183-101.compute-1.amazonaws.com</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory></remoteDirectory>
+                  <sourceFiles></sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>sudo yum -y install nodejs npm --enablerepo=epel</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>true</usePty>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+          </publishers>
+          <continueOnError>false</continueOnError>
+          <failOnError>false</failOnError>
+          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshAlwaysRunPublisherPlugin" reference="../.."/>
+        </delegate>
+      </preBuild>
+    </jenkins.plugins.publish__over__ssh.BapSshPreBuildWrapper>
+    <jenkins.plugins.publish__over__ssh.BapSshPostBuildWrapper plugin="publish-over-ssh@1.12">
+      <postBuild>
+        <consolePrefix>SSH: </consolePrefix>
+        <delegate>
+          <publishers>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+              <configName>ec2-52-5-190-167.compute-1.amazonaws.com</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory></remoteDirectory>
+                  <sourceFiles>app.js,package.json</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>npm install 
+sudo npm install -g forever
+forever start app.js</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>true</usePty>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+              <configName>ec2-52-5-183-101.compute-1.amazonaws.com</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory></remoteDirectory>
+                  <sourceFiles>app1.js,package.json</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>npm install 
+sudo npm install -g forever
+forever start app1.js</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>true</usePty>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+          </publishers>
+          <continueOnError>false</continueOnError>
+          <failOnError>false</failOnError>
+          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshAlwaysRunPublisherPlugin" reference="../.."/>
+        </delegate>
+      </postBuild>
+    </jenkins.plugins.publish__over__ssh.BapSshPostBuildWrapper>
+  </buildWrappers>
+</project>
