@@ -16,14 +16,14 @@ Project Team Members:
 2] For automatic configuration, we have used  AWS CloudFormation templates.
 ![alt deploy](screenshots_deploy/cloudformation.png)
 
-3] This cloudFormation template in turn creates EC2 instances automatically.
+3] The CloudFormation template in turn creates EC2 instances automatically.
 ![alt deploy](screenshots_deploy/ec2.png)
 
 4] The screenshot below shows a small sample of our CloudFormation template file. The repository contains a gistfile1.js which contains the entire code of our CloudFormation template. 
 
 ![alt deploy](screenshots_deploy/gistfile.png)
 
-We can see that git is automatically configured on our EC2 instance. Any other project dependencies can also be set up using  AWS CloudFormation.
+We can see that git is automatically configured on our EC2 instance. Any other project dependencies can also be set up using AWS CloudFormation.
 
  
 
