@@ -49,6 +49,7 @@ We can see that git is automatically configured on our EC2 instance. Any other p
 
 
 1] To check if our application has deployed successfully on the remote EC2 instance, type the public IP address of the EC2 server to view the application.
+
 ![alt deploy](screenshots_deploy/world.png)
 
 Our application is deployed successfully as seen in the screenshot.
