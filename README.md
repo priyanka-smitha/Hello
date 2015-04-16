@@ -65,12 +65,14 @@ Our application is deployed successfully as seen in the screenshot.
 
 ![alt deploy](screenshots_deploy/blue.png)
 
+We acn see that the second version deployed on the canary has "Hello blue" instead of "Hello world". 
+
 4] In the next step, we monitor the canary server for instability or faults and kill the canary, if the application behaves erroneously.
 
 **Step 5: The ability to monitor the deployed application for alerts/failures (using at least 2 metrics).**
 
-1] In this step, we monitored the canary server with the code, which can be found at this link https://github.com/priyanka-smitha/Monitoring. 
-We used memoryand the CPU Idle time as the metrics to monitor the health and behaviour of the second version(app1.js) of our application on the canary.
+1] We monitor the canary server with the code, which can be found at: https://github.com/priyanka-smitha/Monitoring.
+We use memory and the CPU Idle time as the metrics to monitor the health and behaviour of the second version(app1.js) of our application on the canary.
 
 ![alt deploy](screenshots_deploy/monitoring.png)
 
@@ -78,7 +80,7 @@ We used memoryand the CPU Idle time as the metrics to monitor the health and beh
 
 ![alt deploy](screenshots_deploy/canary_code.png)
 
-3] The canary **dies** when the CPU has a load higher than a particular threshold, and the proxy routes the traffic of the canary to the productio as shown below. On port 4000 the canary points to the production server.
+3] The canary **dies** when the CPU has a load higher than a particular threshold, and the proxy routes the traffic of the canary to the productio as shown below. On port 4000 the canary points to the production server. app1.js has some CPU intensive code and hence the canary is **killed**.
 
 ![alt deploy](screenshots_deploy/canary_world.png)
 
