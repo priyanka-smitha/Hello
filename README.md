@@ -37,27 +37,27 @@ We can see that git is automatically configured on our EC2 instance. Any other p
 
 ![alt deploy](screenshots_deploy/sshserver.png)
 
-3] We have the following instances as our deployment servers. 
+3] We have the following EC2 instances as our deployment servers. 
 
 ![alt deploy](screenshots_deploy/ec2.png)
 
-4] The following configuration has been done on 52.5.190.167 to deploy the first version of our application.
+4] The following configuration has been done on 52.5.190.167 to deploy the first version of our application(app.js).
 
 ![alt deploy](screenshots_deploy/commands.png) 
 
 **Step 3: The deployment must occur on an actual remote machine/VM (e.g. AWS, droplet, VCL), and not a local VM.**
 
 
+1] To check if our application has deployed successfully on the remote EC2 instance, type the public IP address of the EC2 server to view the application.
 ![alt deploy](screenshots_deploy/world.png)
 
-1] To check if our application has deployed successfully on the remote EC2 instance, type the public IP address of the EC2 server to view the application. This can be seen below. 
-
+Our application is deployed successfully as seen in the screenshot.
 
 **Step 4: The ability to perform a canary release.**
 
 1] For performing a simulation of Canary Release, we initially deployed the production version of the application on two EC2 instances. 
 
-2] Then we selectively chose 52.5.183.101 as our canary deployment server. We then deployed the newer version "blue" to the canary server. 
+2] Then we selectively chose 52.5.183.101 as our canary deployment server. We then deployed the newer version "app1.js" to the canary server. 
 
 3] Thus we are considering the server with IP address 52.5.190.167 as our production server and the server with IP address 52.5.183.101 as our canary server.
 
@@ -65,24 +65,24 @@ We can see that git is automatically configured on our EC2 instance. Any other p
 
 ![alt deploy](screenshots_deploy/blue.png)
 
-4] In this step, we simply monitor the canary server for instability or faults and kill the canary, if the application behaves erroneously.
+4] In the next step, we monitor the canary server for instability or faults and kill the canary, if the application behaves erroneously.
 
 **Step 5: The ability to monitor the deployed application for alerts/failures (using at least 2 metrics).**
 
-1] In this step, we monitored the canary server with the code, which can be found at this link https://github.com/priyanka-smitha/Monitoring. We used the following two metrics, as can be seen in the figure, for the application, to check its health and behaviour.   
+1] In this step, we monitored the canary server with the code, which can be found at this link https://github.com/priyanka-smitha/Monitoring. 
+We used memoryand the CPU Idle time as the metrics to monitor the health and behaviour of the second version(app1.js) of our application on the canary.
 
 ![alt deploy](screenshots_deploy/monitoring.png)
 
-2] We have a proxy server running on port 4000, of the canary, which always points to the production server. 
-
-3] Thus, we can fall back to this server, if some error condition occurs to the canary server, as can be seen in the image below. 
+2] We have a proxy server running on port 4000 of the canary, which always points to the production server by default.Thus, we can fall back to this server, if some error condition occurs to the canary server, as can be seen in the image below. 
 
 ![alt deploy](screenshots_deploy/canary_code.png)
 
-4] The canary **dies** when the CPU has a load higher than a particular threshold, and the proxy routes the traffic of the canary to port 4000 as seen below.
+3] The canary **dies** when the CPU has a load higher than a particular threshold, and the proxy routes the traffic of the canary to the productio as shown below. On port 4000 the canary points to the production server.
 
 ![alt deploy](screenshots_deploy/canary_world.png)
 
+If the version 2 is stable on the canary for a long time, then we can deploy it on our production server too.
 
 The configuration file of Jenkins can be found in our repository and is called 'config.xml'. 
 
