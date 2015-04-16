@@ -13,19 +13,29 @@ Project Team Members:
 
 ![alt deploy](screenshots_deploy/gistfile.png)
 
+![alt deploy](screenshots_deploy/cloudformation.png)
+
+![alt deploy](screenshots_deploy/ec2.png)
+
 **Step 2: The ability to deploy a self-contained/built application to the deployment environment. That is, this action should occur after a build step in your pipeline.**
 
-![alt deploy](screenshots_deploy/cloudformation.png)
+
 
 **Step 3: The deployment must occur on an actual remote machine/VM (e.g. AWS, droplet, VCL), and not a local VM.**
 
-![alt deploy](screenshots_deploy/ec2.png)
+![alt deploy](screenshots_deploy/world.png)
+
+![alt deploy](screenshots_deploy/blue.png)
 
 ![alt deploy](screenshots_deploy/commands.png)
 
 **Step 4: The ability to perform a canary release.**
+1] For performing a simulation of Canary Release, we initially deployed the production version of the application on two ec2 instances as can be seen from the figure below. 
 
 ![alt deploy](screenshots_deploy/sshserver.png)
+
+
+
 
 ![alt deploy](screenshots_deploy/canary.png)
 
