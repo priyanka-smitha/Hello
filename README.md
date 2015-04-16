@@ -71,16 +71,19 @@ We acn see that the second version deployed on the canary has "Hello blue" inste
 
 **Step 5: The ability to monitor the deployed application for alerts/failures (using at least 2 metrics).**
 
-1] We monitor the canary server with the code, which can be found at: https://github.com/priyanka-smitha/Monitoring.
+1] We monitor the canary server with monitoring code, which can be found at: https://github.com/priyanka-smitha/Monitoring.
+
 We use memory and the CPU Idle time as the metrics to monitor the health and behaviour of the second version(app1.js) of our application on the canary.
 
 ![alt deploy](screenshots_deploy/monitoring.png)
 
-2] We have a proxy server running on port 4000 of the canary, which always points to the production server by default.Thus, we can fall back to this server, if some error condition occurs to the canary server, as can be seen in the image below. 
+2] We have a proxy server running on port 4000 of the canary, which always points to the production server by default.Thus, we can fall back to this server, if some error condition occurs to the canary server.The complete code can be found mentioned in the link above.
+
+3] The canary **dies** when the CPU has a load higher than a particular threshold. app1.js has some CPU intensive code and hence the canary is **killed**.
 
 ![alt deploy](screenshots_deploy/canary_code.png)
 
-3] The canary **dies** when the CPU has a load higher than a particular threshold, and the proxy routes the traffic of the canary to the productio as shown below. On port 4000 the canary points to the production server. app1.js has some CPU intensive code and hence the canary is **killed**.
+4]The proxy routes the traffic of the canary to the production server as shown below. On port 4000 the canary points to the production server.
 
 ![alt deploy](screenshots_deploy/canary_world.png)
 
