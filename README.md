@@ -47,11 +47,9 @@ We can see that git is automatically configured on our EC2 instance. Any other p
 
 **Step 3: The deployment must occur on an actual remote machine/VM (e.g. AWS, droplet, VCL), and not a local VM.**
 
-
 1] To check if our application has deployed successfully on the remote EC2 instance, type the public IP address of the EC2 server to view the application.
 
 ![alt deploy](screenshots_deploy/world.png)
-
 Our application is deployed successfully as seen in the screenshot.
 
 **Step 4: The ability to perform a canary release.**
