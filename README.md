@@ -11,17 +11,20 @@ Project Team Members:
 
 **Step 1: The ability to configure a deployment environment automatically, using a configuration management tool, such as ansible, or configured using vagrant/docker.**
 
-1] The deployment environment that we have chosen as part of our project are AWS EC2. 
+1] The remote deployment environment that we have chosen as part of our project is AWS EC2. 
 
-2] For automatic configuration, we have used cloudFormation templates.
+2] For automatic configuration, we have used  AWS CloudFormation templates.
 ![alt deploy](screenshots_deploy/cloudformation.png)
 
 3] This cloudFormation template in turn creates EC2 instances automatically.
 ![alt deploy](screenshots_deploy/ec2.png)
 
+4] The screenshot below shows a small sample of our CloudFormation template file. The repository contains a gistfile1.js which contains the entire code of our CloudFormation template. 
+
 ![alt deploy](screenshots_deploy/gistfile.png)
 
-4] The above screenshots show a small sample of our cloudFormation template file. The repository contains a gistfile1.js which contains the entire code of our CloudFormation template. 
+We can see that git is automatically configured on our EC2 instance. Any other project dependencies can also be set up using  AWS CloudFormation.
+
  
 
 **Step 2: The ability to deploy a self-contained/built application to the deployment environment. That is, this action should occur after a build step in your pipeline.**
