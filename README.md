@@ -50,13 +50,14 @@ We can see that git is automatically configured on our EC2 instance. Any other p
 1] To check if our application has deployed successfully on the remote EC2 instance, type the public IP address of the EC2 server to view the application.
 
 ![alt deploy](screenshots_deploy/world.png)
+
 Our application is deployed successfully as seen in the screenshot.
 
 **Step 4: The ability to perform a canary release.**
 
-1] For performing a simulation of Canary Release, we initially deployed the production version of the application on two EC2 instances. 
+1] For performing a simulation of Canary Release, we initially deployed the production version(app.js) of the application on two EC2 instances. 
 
-2] Then we selectively chose 52.5.183.101 as our canary deployment server. We then deployed the newer version "app1.js" to the canary server. 
+2] We selectively chose 52.5.183.101 as our canary deployment server. We then deployed the newer version "app1.js" to the canary server. 
 
 3] Thus we are considering the server with IP address 52.5.190.167 as our production server and the server with IP address 52.5.183.101 as our canary server.
 
