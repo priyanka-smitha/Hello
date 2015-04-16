@@ -57,7 +57,7 @@ Our application is deployed successfully as seen in the screenshot.
 
 1] For performing a simulation of Canary Release, we initially deployed the production version(app.js) of the application on two EC2 instances. 
 
-2] We selectively chose 52.5.183.101 as our canary deployment server. We then deployed the newer version "app1.js" to the canary server. 
+2] We selectively chose 52.5.183.101 as our canary deployment server. We then deployed version 2 of our application which is "app1.js" to the canary server. 
 
 3] Thus we are considering the server with IP address 52.5.190.167 as our production server and the server with IP address 52.5.183.101 as our canary server.
 
@@ -65,7 +65,7 @@ Our application is deployed successfully as seen in the screenshot.
 
 ![alt deploy](screenshots_deploy/blue.png)
 
-We acn see that the second version deployed on the canary has "Hello blue" instead of "Hello world". 
+We can see that the second version deployed on the canary has "Hello blue" instead of "Hello world". 
 
 4] In the next step, we monitor the canary server for instability or faults and kill the canary, if the application behaves erroneously.
 
